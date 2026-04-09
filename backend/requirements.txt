@@ -1,0 +1,39 @@
+# Core
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+
+# LangChain / LangGraph
+langchain
+langchain-core
+langchain-google-genai
+langchain-community
+langgraph
+
+# Code Parsing
+tree-sitter==0.21.3
+tree-sitter-python==0.21.0
+tree-sitter-javascript==0.21.0
+tree-sitter-typescript==0.21.0
+tree-sitter-java==0.21.0
+
+# GitHub Ingestion
+PyGithub
+
+# Vector Store (Supabase pgvector)
+supabase
+
+# Hybrid Search
+rank-bm25
+
+# Reranking
+flashrank
+
+# HTTP
+httpx
+aiohttp
+
+# Utilities
+tenacity

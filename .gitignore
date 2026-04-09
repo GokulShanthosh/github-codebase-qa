@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Env files — never commit secrets
+.env
+backend/.env
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Build artifacts
+frontend/dist/
+frontend/.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
