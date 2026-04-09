@@ -11,6 +11,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Pre-download the FlashRank reranker model at build time so it's baked
+# into the image — avoids a 3MB download on every cold start at runtime
+RUN python -c "from flashrank import Ranker; Ranker(model_name='ms-marco-TinyBERT-L-2-v2')"
+
 # Copy application code
 COPY app/ ./app/
 
