@@ -20,7 +20,7 @@ EVENT TYPES:
 """
 import json
 from typing import AsyncGenerator
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from app.graph.workflow import query_graph
 from app.graph.nodes import bm25_cache
 from app.core.ingestion.embedder import embed_text
@@ -77,9 +77,9 @@ async def stream_query(question: str, repo_id: str) -> AsyncGenerator[str, None]
         # ── Step 4: Stream LLM generation token by token ────────────────
         yield _event("status", message="Generating answer...")
 
-        llm = ChatGoogleGenerativeAI(
-            model=settings.gemini_chat_model,
-            google_api_key=settings.google_api_key,
+        llm = ChatGroq(
+            model=settings.groq_chat_model,
+            api_key=settings.groq_api_key,
             temperature=0,
         )
 

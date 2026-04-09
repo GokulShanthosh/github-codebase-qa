@@ -9,8 +9,9 @@ class Settings(BaseSettings):
     supabase_service_key: str = ""
     database_url: str = ""
     app_env: str = "development"
-    gemini_chat_model: str = "gemini-2.5-flash"
     gemini_embedding_model: str = "models/gemini-embedding-001"
+    groq_api_key: str = ""
+    groq_chat_model: str = "llama-3.3-70b-versatile"
     allowed_origins: str = "*"  # comma-separated list, e.g. "https://app.vercel.app,http://localhost:5173"
 
     class Config:

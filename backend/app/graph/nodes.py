@@ -9,7 +9,7 @@ Each node:
 
 Pipeline: embed_query → hybrid_retrieve → rerank → generate
 """
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from rank_bm25 import BM25Okapi
 from flashrank import Ranker, RerankRequest
 
@@ -201,9 +201,9 @@ async def generate(state: QueryState) -> dict:
     "The charge function in services/payment.py (line 12) handles this by..."
     Without metadata, answers are vague and unverifiable.
     """
-    llm = ChatGoogleGenerativeAI(
-        model=settings.gemini_chat_model,
-        google_api_key=settings.google_api_key,
+    llm = ChatGroq(
+        model=settings.groq_chat_model,
+        api_key=settings.groq_api_key,
         temperature=0,
         # WHY temperature=0: we want deterministic, factual answers grounded
         # in the retrieved code — not creative generation.
